@@ -9,9 +9,10 @@ shib_package:               "shibboleth.x86_64"
 shib_virtualhost_template:  "virtualhost.j2"
 shib_attribute_template:    "attribute-map.xml.dist.j2"
 shib_config_template:       "shibboleth2.xml.dist.j2"
-
-shib_repo_mirrorlist: "https://shibboleth.net/cgi-bin/mirrorlist.cgi/CentOS_7"
-shib_repo_gpgkey:     "https://downloadcontent.opensuse.org/repositories/security:/shibboleth/CentOS_7/repodata/repomd.xml.key"
+shib_repo_name:             "shibboleth"
+shib_repo_description:      "Shibboleth (CentOS_7)"
+shib_repo_mirrorlist:       "https://shibboleth.net/cgi-bin/mirrorlist.cgi/CentOS_7"
+shib_repo_gpgkey:           "https://downloadcontent.opensuse.org/repositories/security:/shibboleth/CentOS_7/repodata/repomd.xml.key"
 
 shib_user:            "shibd"
 shib_group:           "shibd"
