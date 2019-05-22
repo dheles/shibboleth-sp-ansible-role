@@ -4,6 +4,7 @@ shib_config_dir:      "/etc/shibboleth"
 shib_hostname:           "{{ hostname | default('myapp') }}"
 
 shib_debugging:             "{{ debugging | default(false) }}"
+shib_install:               true
 shib_repo_template:         "sp_repo.j2"
 shib_package:               "shibboleth.x86_64"
 shib_virtualhost_template:  "virtualhost.j2"
