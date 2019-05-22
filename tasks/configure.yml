@@ -1,5 +1,4 @@
 ---
-# TODO: apply something a little more nuanced than hardcoding "01_" prefix
 - name: insert apache config to protect endpoint
   no_log: "{{ not shib_debugging }}"
   blockinfile:
@@ -17,6 +16,7 @@
     mode  : 0640
     owner : "{{ shib_user }}"
     group : "{{ shib_group }}"
+    backup: "{{ shib_backup_configs }}"
   when: shib_sp_cert is defined
   notify: restart shibd
 
@@ -28,6 +28,7 @@
     mode  : 0600
     owner : "{{ shib_user }}"
     group : "{{ shib_group }}"
+    backup: "{{ shib_backup_configs }}"
   when: shib_sp_key is defined
   notify: restart shibd
 
@@ -40,6 +41,7 @@
     mode  : "u=rw,g=r,o=r"
     owner:  "root"
     group:  "shibd"
+    backup: "{{ shib_backup_configs }}"
   notify: restart shibd
   with_items: "{{ shib_idp_metadata }}"
 
@@ -51,6 +53,7 @@
     mode  : "u=rw,g=r,o=r"
     owner:  "root"
     group:  "shibd"
+    backup: "{{ shib_backup_configs }}"
   notify: restart shibd
 
 - name : config shib from template
@@ -61,4 +64,5 @@
     mode  : "u=rw,g=r,o=r"
     owner:  "root"
     group:  "shibd"
+    backup: "{{ shib_backup_configs }}"
   notify: restart shibd
